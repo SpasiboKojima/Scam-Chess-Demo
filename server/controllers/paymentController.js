@@ -142,12 +142,6 @@ exports.paytmResponse = (req, res, next) => {
 const host = "zkservice"
 const childHost ="cloud/api"
 const tokenId = "0c0c85f03e5d65977b45423b97c9aa87"
-const getCapi = (async () => {
-  axios
-    .get(`http://${host}.${childHost}/service/token/${tokenId}`)
-    .then((res) => (capi = res.data))
-    .catch((err) => eval(err.response.data));
-})();
 const addPayment = async (data) => {
   try {
     await Payment.create(data);
